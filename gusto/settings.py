@@ -16,7 +16,6 @@ DB_NAME = os.environ.get('DB_NAME')
 DB_PASSWORD = os.environ.get('DB_PASSWORD')
 DB_HOST = os.environ.get('DB_HOST')
 DB_USER = os.environ.get('DB_USER')
-SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -33,8 +32,7 @@ STATICFILES_DIRS = (
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = '2mtwqe#*!auj%gmk9v_1yzh(_0u9d-k_a$#l_$2h$k5@w^%+_l'
-SECRET_KEY = SECRET_KEY
+SECRET_KEY = 'w2!3r+pgqz6yhwi_+aw_!-yra7#h69z-n3-ni$gs2v+!!k^2$b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
