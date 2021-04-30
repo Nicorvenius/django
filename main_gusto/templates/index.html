@@ -1,36 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="container body-content">
-        <section id="special_menu">
-            <div class="container">
-                <h1 style="margin: 50px 0px" class="title">Mеню от шефа</h1>
-                <div class="row">
-                    {% for items in special_categories %}
-                        {% for dish in items.dishes %}
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-8"><h5><a href="/menu/{{ dish.pk }}">{{ dish.title }}</a></h5></div>
-                                    <div class="col-md-4"><h4 align="right">{{ dish.price }} $</h4></div>
-                                    <div class="col-md-12"><img src="{{ dish.photo.url }}" class="img-thumbnail"></img>
-                                    </div>
-                                    <div class="col-md-12"><h5 class="text-muted">{{ dish.description }}</h5></div>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    {% endfor %}
-                </div>
-            </div>
-        </section>
         <section id="menu">
             <div class="container body-content">
-                <h1 style="margin: 50px 0px"  class="title">Меню</h1>
+                <h1 style="margin: 50px 0px" class="title">Меню</h1>
                 <div class="row">
                     {% for items in categories %}
                         <h2 style="margin-bottom: 30px" class="title">{{ items.title }}</h2>
                         {% for dish in items.dishes %}
                             <div class="col-md-4">
                                 <div class="row">
-                                    <div class="col-md-8"><h5><a href="/menu/{{ dish.pk }}">{{ dish.title }}</a></h5></div>
+                                    <div class="col-md-8"><h5><a href="/menu/{{ dish.pk }}">{{ dish.title }}</a></h5>
+                                    </div>
                                     <div class="col-md-4"><h3 align="right">{{ dish.price }} $</h3></div>
                                     <div class="col-md-12"><img src="{{ dish.photo.url }}" class="img-thumbnail"></img>
                                     </div>
@@ -69,23 +50,23 @@
         </section>
         <section id="reservation">
             <div class="container">
-                <div style="background: #cccccc; margin-top: 50px; padding: 50px">
+                <div>
                     <h3>Відправте нам ваше повідомлення</h3>
                     <form name="sendMessage" id="contactForm" novalidate action="" method="post">
                         {% csrf_token %}
-                        <div class="row">
-                            <div class="col-md-6">
+                        <div class="form-row">
+                            <div class="col-md-6 form-group">
                                 {{ form.user_name }}
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 form-group">
                                 {{ form.user_email }}
                             </div>
                         </div>
-                        <div style="margin-top: 10px" class="row">
-                            <div class="col-md-12">
-                                {{ form.message }}
-                                <button type="submit" class="btn btn-custom btn-lg">Відправити повідомлення</button>
-                            </div>
+                        <div class="form-group">
+                            {{ form.message }}
+                        </div>
+                        <div class="text-center">
+                            <button type="submit">Send Message</button>
                         </div>
 
                     </form>
